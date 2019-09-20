@@ -5,7 +5,7 @@ function V_new = suavizacao_vertices(V,Tri,Corner, N_V)
 
 V_new = V;
 
-alfa = 0.5;
+alfa = 0.01;
 
 for i = 1: size(V,1)
     %corner que o vertice esta ligado

@@ -185,11 +185,12 @@ for k = 1:n3-1
             
             %serve para ver se o triangulo serve a regra da mao direita
             pivo = V_M(IND_POS(1),:);
-            
+            alf = 1;
             %tratando para o caso ==3 ficar igual ao ==1. ja que eles ja
             %sao parecidos
             if size(IND_POS,2) == 3
-                pivo = -1*V_M(IND_NEG(1),:);
+                pivo = V_M(IND_NEG(1),:);
+                alf = -1;
                 aux = IND_POS;
                 IND_POS = IND_NEG;
                 IND_NEG = aux;
@@ -221,7 +222,7 @@ for k = 1:n3-1
             C = (v1 + v2 + v3)./3;
             %significa que a ordem esta errada, estao da um swap entre o
             %primeiro e o segundo vertice do triangulo
-            if dot(normal,pivo - C) < 0
+            if dot(normal,  alf*(pivo - C)  ) < 0
                 aux = Tri_temp(1);
                 Tri_temp(1) = Tri_temp(2);
                 Tri_temp(2) = aux;

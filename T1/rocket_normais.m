@@ -1,4 +1,4 @@
-[V,Tri] = read_obj('bunny.obj');
+[V,Tri] = read_obj('rocker-arm.obj');
 
 Corner = corner_table(V,Tri);
 
@@ -11,6 +11,3 @@ end
 
 % quiver3( C(:,1),C(:,2),C(:,3),N_F(:,1),N_F(:,2),N_F(:,3),'Color','r' );
 quiver3( V(:,1),V(:,2),V(:,3),N_V(:,1),N_V(:,2),N_V(:,3),'Color','b' );
-
-
-
