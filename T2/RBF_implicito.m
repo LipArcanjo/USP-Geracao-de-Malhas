@@ -1,4 +1,4 @@
-function lambdas =  RBF_implicito(V,N_V,h)
+function lambdas =  RBF_implicito(V,N_V,h,k)
 
 num_v = size(V,1);
 
@@ -14,14 +14,8 @@ f3 = -1*ones( num_v,1 );
 f = [f1;f2;f3];
 
 %matriz com distancia
-M_dist = zeros( 3*num_v, 3*num_v );
+M_dist = pdist2(V_new,V_new);
 
-for i = 1:num_v*3
-    A1 = V_new(:,1) - V_new(i,1); 
-    A2 = V_new(:,2) - V_new(i,2); 
-    A3 = V_new(:,3) - V(i,3); 
-    M_dist(:,i) = sqrt(A1.^2 + A2.^2 + A3.^2);
-    
-end
+M_dist = M_dist.^(2*k + 1);
 
 lambdas = M_dist\f;
