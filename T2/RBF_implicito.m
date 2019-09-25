@@ -1,4 +1,9 @@
-function lambdas =  RBF_implicito(V,N_V,h,k)
+function [V_new,lambdas] =  RBF_implicito(V,N_V,h,k)
+%Essa função implimenta o RBF implicito usando como RBF a poli-harmonica, 
+%para saber qual grau da poli-harmonica se passa o valor k, onde o grau da poli-harmonica eh 2*k + 1, k deve ser natural.
+%V e N_V são respectivamente os vértices e as normais da nossa nuvem de pontos
+%h é o offset da RBF_implicita
+
 
 num_v = size(V,1);
 
