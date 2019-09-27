@@ -1,9 +1,11 @@
+load('bunny.mat');
+
 n = 40;
 t = linspace(-1,1,n);
 
 [X,Y,Z] = meshgrid(t);
 
-h = 0.01;
+h = 0.05;
 k = 1;
 
 [V,F] =  RBF_implicito(P,N,h,k,X,Y,Z);
