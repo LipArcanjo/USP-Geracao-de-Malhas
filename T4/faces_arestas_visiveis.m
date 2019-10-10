@@ -1,8 +1,8 @@
-function [F_v,A_v] = fases_arestas_visiveis(F,V,P)
+function [F_v,A_v] = faces_arestas_visiveis(F,V,P)
 %Esta funcao retorna as fases e arestas visiveis de um fecho convexo em
-%relaÁ„o a um ponto passado
-% param - F,V s„o as faces e vertices do fecho convexo
-% param - P eh o ponto ao qual queremos saber que fases s„o visiveis
+%rela√ß√£o a um ponto passado
+% param - F,V s√£o as faces e vertices do fecho convexo
+% param - P eh o ponto ao qual queremos saber que fases s√£o visiveis
 
 % retorno - F_V - faces visiveis ao ponto
 % retorno - A_v - arestas que eh compartilhada por faces visiveis e nao
