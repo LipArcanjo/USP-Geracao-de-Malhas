@@ -3,7 +3,7 @@ load('V_elipse')
 
 P = [2,2,2];
 
-[F_v,A_v] = fases_arestas_visiveis(Tri,V_new,P);
+[F_v,A_v] = faces_arestas_visiveis(Tri,V_new,P);
 
 trimesh(Tri, V_new(:,1),V_new(:,2),V_new(:,3),'FaceAlpha',1,'FaceColor','k','LineWidth',0.1,'LineStyle',':');
 hold on;
