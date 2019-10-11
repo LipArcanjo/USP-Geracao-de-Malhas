@@ -1,4 +1,3 @@
-% Equacoes de Winslow
 err = inf;
 tol = 1e-4;
 iter = 0;

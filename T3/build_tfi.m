@@ -15,11 +15,10 @@ xi = xi(:); eta = eta(:);
 
 
 % Fronteiras do dominio fisico
-% Swan
-%Rb = @(s) ([s, ZERO]);
-%Rt = @(s) ([s, 1-3*s+3*s.^2]);
-%Rl = @(s) ([ZERO, s]);
-%Rr = @(s) ([1+2*s-2*s.^2, s]);
+Rb = @(s) RRb(s,ZERO,UM);
+Rt = @(s) RRt(s,ZERO,UM);
+Rl = @(s) RRl(s,ZERO,UM);
+Rr = @(s) RRr(s,ZERO,UM);
 
 % TFI
 XY = repmat(1-eta,[1,2]).*Rb(xi)+repmat(eta,[1,2]).*Rt(xi)...

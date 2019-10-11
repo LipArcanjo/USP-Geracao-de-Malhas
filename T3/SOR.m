@@ -1,12 +1,3 @@
-build_tfi;
-
-A = zeros(1,15);
-B = zeros(1,15);
-C = ones(1,15);
-D = ones(1,15);
-
-[P,Q] = PQ(eta,xi, A,B,C,D);
-
 % Metodo de Jacobi para iterações
 err = inf;
 tol = 1e-4;

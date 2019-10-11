@@ -1,0 +1,24 @@
+Exemplo_aula
+	SOR: 47
+	Gauss:135 
+	Jacobi: 245
+
+Exemplo_aula_reajustado
+	SOR: 41 
+	Gauss: 127
+	Jacobi: 236
+
+Exemplo_parabola
+	SOR: 59
+	Gauss: 170
+	Jacobi: 310
+
+Exemplo_parabola_reajustado
+	SOR: 34
+	Gauss: 135
+	Jacobi: 259
+
+Exemplo_borboleta_editado
+	SOR: 57
+	Gauss: 120
+	Jacobi: 112

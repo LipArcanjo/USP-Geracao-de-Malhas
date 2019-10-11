@@ -1,5 +1,8 @@
-function [P,Q] = PQ(eta,xi, a,b,c,d)
-
+function [P,Q] = PQ(eta,xi, a,b,c,d,e,f,g,h)
+%calcula os P e Q da equacao de Poisson, os parametros a,b,c,d são os
+%parametros a,b,c,d de P, que atua nas linhas.
+%os parametros e,f,g,h são os parametros a,b,c,d de Q, qua atua sobre as
+%colunas.
 eta_dif = repmat(eta(:,1),1,size(eta,1));
 eta_dif = eta_dif - eta_dif';
 eta_dif_mod = eta_dif;
@@ -32,14 +35,12 @@ for k = 1:m
         eta_sin = eta_sin_(l,:);
         xi_sin = xi_sin_(k,:);
         
-        size(xi_sin)
         P_first = sum( a.*xi_sin.*exp((-c).*xi_mod) );
-        size(xi_sin)
         P_second = sum( b.*xi_sin.*exp( (-d).*sqrt( (xi_mod.^2)+( eta_mod.^2 )  ) ) );
         P(l,k) = P_first + P_second;
         
-        Q_first = sum( a.*eta_sin.*exp((-c).*eta_mod) );
-        Q_second = sum( b.*eta_sin.*exp( (-d).*sqrt( (xi_mod.^2)+( eta_mod.^2 )  ) ) );
+        Q_first = sum( e.*eta_sin.*exp((-g).*eta_mod) );
+        Q_second = sum( f.*eta_sin.*exp( (-h).*sqrt( (xi_mod.^2)+( eta_mod.^2 )  ) ) );
         Q(l,k) = Q_first + Q_second;
         
     end
