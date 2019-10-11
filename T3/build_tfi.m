@@ -8,15 +8,19 @@ UM = ones(m*n,1);
 xi  = linspace(0,1,m);
 eta = linspace(0,1,n);
 [xi,eta] = meshgrid(xi,eta);
+etaa = eta;
+xii = xi;
 xi = xi(:); eta = eta(:);
+
+
 
 % Fronteiras do dominio fisico
 % Swan
-Rb = @(s) ([s, ZERO]);
-Rt = @(s) ([s, 1-3*s+3*s.^2]);
-Rl = @(s) ([ZERO, s]);
-Rr = @(s) ([1+2*s-2*s.^2, s]);
-      
+%Rb = @(s) ([s, ZERO]);
+%Rt = @(s) ([s, 1-3*s+3*s.^2]);
+%Rl = @(s) ([ZERO, s]);
+%Rr = @(s) ([1+2*s-2*s.^2, s]);
+
 % TFI
 XY = repmat(1-eta,[1,2]).*Rb(xi)+repmat(eta,[1,2]).*Rt(xi)...
    + repmat(1-xi,[1,2]).*Rl(eta)+repmat(xi,[1,2]).*Rr(eta)...
@@ -31,5 +35,5 @@ Y = reshape(XY(:,2),[n,m]);
 eta = etaa;
 xi = xii;
 % Plotando
-figure;
-plot_grid(X,Y);
+%figure;
+%plot_grid(X,Y);

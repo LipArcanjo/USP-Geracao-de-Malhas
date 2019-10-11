@@ -1,4 +1,4 @@
-%function [P,Q] = PQ(eta,xi, a,b,c,d)
+function [P,Q] = PQ(eta,xi, a,b,c,d)
 
 eta_dif = repmat(eta(:,1),1,size(eta,1));
 eta_dif = eta_dif - eta_dif';
@@ -32,8 +32,9 @@ for k = 1:m
         eta_sin = eta_sin_(l,:);
         xi_sin = xi_sin_(k,:);
         
-        
+        size(xi_sin)
         P_first = sum( a.*xi_sin.*exp((-c).*xi_mod) );
+        size(xi_sin)
         P_second = sum( b.*xi_sin.*exp( (-d).*sqrt( (xi_mod.^2)+( eta_mod.^2 )  ) ) );
         P(l,k) = P_first + P_second;
         
