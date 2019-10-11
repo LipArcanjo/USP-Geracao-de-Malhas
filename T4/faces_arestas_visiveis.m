@@ -8,14 +8,9 @@ function [F_v,A_v] = faces_arestas_visiveis(F,V,P)
 % retorno - A_v - arestas que eh compartilhada por faces visiveis e nao
 % visiveis
 
-%arrumando os sentidos dos triangulos do fecho convexo, para isto estou
-%assumindo que o primeiro triangulo sempre esta no sentido correto, se o
-%primeiro triangulo estiver no sentido incorreto, todos os outros
-%triangulos ficaram no sentido incorreto
 Corner = corner_table(V,F);
 
-Vet = ones(1,size(F,1));
-[F, Corner,Vet] = arruma_sentido_rec(F,Corner,Vet,1);
+F = arruma_sentido_rec(F,V,Corner);
 %descobrindo as fases que estao na
 F_v = [];
 cont_fases = 0;
@@ -27,7 +22,7 @@ for i = 1:size(F,1)
     v3 = V(F(i,3),:);
 
     %quer dizer que o ponto consegue ver a aresta
-    if volume(v1,v2,v3,P) > 0
+    if volume(v1,v2,v3,P) < 0
         cont_fases = cont_fases + 1;
         F_v(cont_fases) = i;
     end
@@ -49,7 +44,7 @@ for p = 1:size(F_v,1)
         v3 = V(F(k,3),:);
         %quer dizer que o ponto nao consegue ver o triangulo, significando
         %que o triangulo representado por i tem uma aresta de retorno
-        if volume(v1,v2,v3,P) < 0
+        if volume(v1,v2,v3,P) > 0
             
             aux = [ F(i, mod(j,3) + 1),F(i, mod(j + 1,3)  + 1) ];
             cont_aresta = cont_aresta + 1;
